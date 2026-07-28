@@ -1,8 +1,11 @@
 const DAY = 24 * 60 * 60 * 1000;
 
+export function dateAttribute(value) {
+  return value instanceof Date && !Number.isNaN(value.getTime()) ? value.toISOString() : String(value || "");
+}
+
 function normalizedDate(value) {
-  if (value instanceof Date && !Number.isNaN(value.getTime())) return value.toISOString().slice(0, 10);
-  return String(value || "").slice(0, 10);
+  return dateAttribute(value).slice(0, 10);
 }
 
 function endOfUtcDay(value) {

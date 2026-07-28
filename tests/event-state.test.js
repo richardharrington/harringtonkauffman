@@ -1,8 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { engagementState, orderEngagements } from "../src/assets/js/event-state.mjs";
+import { dateAttribute, engagementState, orderEngagements } from "../src/assets/js/event-state.mjs";
 
 const event = { startDate: "2026-05-09", endDate: "2026-05-10" };
+
+test("CMS date objects serialize as browser-readable attributes", () => {
+  assert.equal(dateAttribute(new Date("2026-07-29T00:00:00Z")), "2026-07-29T00:00:00.000Z");
+});
 
 test("future engagements remain available", () => {
   assert.equal(engagementState(event, new Date("2026-05-08T12:00:00Z")), "future");

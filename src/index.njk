@@ -9,7 +9,7 @@ loadEngagements: true
   <div class="home-hero-copy">
     <div class="engagements" data-engagements>
       {% for engagement in collections.engagementsDisplay %}
-        <article class="engagement{% if loop.first %} engagement--primary{% else %} engagement--compact{% endif %}" data-engagement data-start-date="{{ engagement.data.startDate }}" data-end-date="{{ engagement.data.endDate or engagement.data.startDate }}" data-status="{{ engagement.data.status or 'scheduled' }}">
+        <article class="engagement{% if loop.first %} engagement--primary{% else %} engagement--compact{% endif %}" data-engagement data-start-date="{{ engagement.data.startDate | htmlDateTime }}" data-end-date="{{ (engagement.data.endDate or engagement.data.startDate) | htmlDateTime }}" data-status="{{ engagement.data.status or 'scheduled' }}">
           <p class="eyebrow" data-engagement-label>{% if engagement.data.eventState == 'recent' %}Most recent show{% elseif loop.first %}Next show{% else %}Later{% endif %}</p>
           <h2>{% if engagement.data.productionSlug %}<a href="/shows/#{{ engagement.data.productionSlug }}">{{ engagement.data.production }}</a>{% else %}{{ engagement.data.production }}{% endif %}</h2>
           {% if engagement.data.presenter %}<p><strong>{{ engagement.data.presenter }}</strong></p>{% endif %}

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { load as loadYaml } from "js-yaml";
 import MarkdownIt from "markdown-it";
-import { engagementState, orderEngagements } from "./src/assets/js/event-state.mjs";
+import { dateAttribute, engagementState, orderEngagements } from "./src/assets/js/event-state.mjs";
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
@@ -45,7 +45,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("findImage", (filename) => imagesByFilename[normalizeFilename(filename)]);
   eleventyConfig.addFilter("markdown", (value = "") => markdown.render(String(value)));
   eleventyConfig.addFilter("markdownInline", (value = "") => markdown.renderInline(String(value)));
-  eleventyConfig.addFilter("htmlDateTime", (value) => value instanceof Date ? value.toISOString() : String(value || ""));
+  eleventyConfig.addFilter("htmlDateTime", dateAttribute);
   eleventyConfig.addFilter("formatShowtime", (value) => {
     const source = value instanceof Date ? value.toISOString() : String(value || "");
     const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(source);
