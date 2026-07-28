@@ -1,5 +1,5 @@
 ---
-production: Test Production
+production: Operation Crush the Rebels
 productionSlug: motel-california
 presenter: Galactic Empire Productions
 venue: Death Star
