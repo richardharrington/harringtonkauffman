@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+permalink: /shows/index.html
+title: Shows
+description: Motel California, Nharcolepsy, Cabaret Terrarium, and Gustave and Nhar animation.
+loadVideos: true
+---
+<div class="page">
+  <header class="page-intro"><p class="eyebrow">Repertoire</p><h1 id="shows">Three stage shows and an animation</h1><p class="prose">The Gustave-and-Nhar canon, assembled from suitcases, tiny instruments, and long journeys. Selected records of where the work traveled appear in <a href="/performance-history/">Performance History</a>.</p></header>
+  <nav aria-label="On this page"><ul class="toc">{% for show in collections.shows %}<li><a href="#{{ show.data.slug }}">{{ show.data.title }}</a></li>{% endfor %}</ul></nav>
+  {% for show in collections.shows %}
+  <article class="show-section" id="{{ show.data.slug }}">{% if show.data.legacyAnchor %}<span class="legacy-anchor" id="{{ show.data.legacyAnchor }}" aria-hidden="true"></span>{% endif %}
+    <header class="show-heading"><h2>{% if show.data.kind == 'stage' %}<em>{{ show.data.title }}</em>{% else %}{{ show.data.title }}{% endif %}</h2><a href="#shows">Back to contents</a></header>
+    <div class="show-layout">
+      <div>
+        <div class="prose">{{ show.templateContent | safe }}</div>
+        {% if show.data.kind == 'stage' %}
+          <h3>Development and evolution</h3>
+          {% if show.data.development %}<p>{{ show.data.development }}</p>{% else %}<p class="review-marker">TBD — MISSING DEVELOPMENT HISTORY.</p>{% endif %}
+          <h3>Credits</h3><dl class="credits">{% for credit in show.data.credits %}<dt>{{ credit.role }}</dt><dd>{{ credit.names }}</dd>{% endfor %}</dl>
+          <h3>Touring history</h3><ul>{% for history in show.data.history %}<li>{{ history.text }}</li>{% endfor %}</ul>
+          <p><a href="/performance-history/#{{ show.data.slug }}-entries">Find {{ show.data.title }} in Selected Performance History.</a></p>
+        {% else %}
+          <h3>Credits</h3><dl class="credits">{% for credit in show.data.credits %}<dt>{{ credit.role }}</dt><dd>{{ credit.names }}</dd>{% endfor %}</dl>
+        {% endif %}
+      </div>
+      <div>
+        {% if show.data.principalImage %}<figure class="show-image">{% image show.data.principalImage, show.data.principalAlt, "", "(max-width: 47rem) 100vw, 40vw" %}{% if show.data.principalCaption %}<figcaption>{{ show.data.principalCaption }}</figcaption>{% endif %}</figure>{% endif %}
+        {% if show.data.additionalImages %}<div class="context-images">{% for item in show.data.additionalImages %}<figure>{% image item.filename, item.alt, "", "(max-width: 31rem) 100vw, 20vw" %}<figcaption>{{ item.caption }}</figcaption></figure>{% endfor %}</div>{% endif %}
+      </div>
+    </div>
+    {% if show.data.slug == 'motel-california' %}
+      <section aria-labelledby="letters-title"><h3 id="letters-title">The cease-and-desist letters</h3>
+        <div class="prose"><p>The production began as <em>Hotel California</em>. After correspondence from attorneys for Henley, the company briefly used <em>The Show Formerly Known As</em>, then adopted <em>Motel California</em>.</p><p class="review-marker">TBD — ADD THE FACTUAL ACCOUNT OF THE CORRESPONDENCE AND THE COMPANY’S ACTUAL FEAR AT THE TIME WHEN THE LETTERS AND RECOLLECTIONS ARE AVAILABLE.</p><p>Contemporary reviews called the forced renaming “pretty amusing in itself” and noted that the show was rechristened after threats from Don Henley’s lawyer.</p></div>
+        <div class="letter-grid">{% for letter in show.data.letters %}<article class="letter-placeholder"><h4>{{ letter.title }}</h4>{% if letter.image %}{% image letter.image, letter.caption, "", "(max-width: 47rem) 100vw, 38vw" %}{% endif %}<p>{{ letter.caption }}</p>{% if letter.date %}<p>Date: {{ letter.date }}</p>{% endif %}{% if letter.sender %}<p>Sender: {{ letter.sender }}</p>{% endif %}<div class="review-marker">{{ letter.transcript | markdown | safe }}</div><p class="review-marker">{{ letter.redactionNotes }}</p></article>{% endfor %}</div>
+      </section>
+    {% endif %}
+    {% if show.data.media %}<section aria-label="{{ show.data.title }} media"><h3>Watch</h3>{% for video in show.data.media %}{% include "partials/video.njk" %}{% endfor %}</section>{% endif %}
+  </article>
+  {% endfor %}
+  <p><a href="/press/image-archive/">Browse the complete image archive.</a></p>
+</div>

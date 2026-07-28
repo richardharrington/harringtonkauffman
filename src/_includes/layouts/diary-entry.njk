@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<article class="page diary-entry" id="{{ legacyAnchor }}">
+  <header class="page-intro"><p class="eyebrow">Diary</p><h1>{{ title }}</h1><p class="meta"><time datetime="{{ entryDate }}">{{ displayDate }}</time>{% if time %} · {{ time }}{% endif %}{% if location %}<br>{{ location }}{% endif %}<br>By {{ author }}</p></header>
+  <div class="diary-body">{{ content | safe }}</div>
+  {% set older = collections.diary | diaryAdjacent(page.inputPath, -1) %}
+  {% set newer = collections.diary | diaryAdjacent(page.inputPath, 1) %}
+  <nav class="diary-nav" aria-label="Diary entries">
+    <div>{% if older %}<span class="eyebrow">Previous entry</span><br><a href="{{ older.url }}">{{ older.data.title }}</a>{% endif %}</div>
+    <div>{% if newer %}<span class="eyebrow">Next entry</span><br><a href="{{ newer.url }}">{{ newer.data.title }}</a>{% endif %}</div>
+  </nav>
+  <p><a href="/diary/">All diary entries</a></p>
+</article>
