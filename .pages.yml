@@ -15,22 +15,56 @@ content:
       sort: [startDate]
     fields:
       - { name: production, label: Production, type: string, required: true }
-      - { name: productionSlug, label: Shows-page anchor, type: select, options: [{ label: Motel California, value: motel-california }, { label: Nharcolepsy, value: nharcolepsy }, { label: Cabaret Terrarium, value: cabaret-terrarium }, { label: Animation, value: animation }], required: true }
+      - name: productionSlug
+        label: Link to an existing Shows section
+        type: select
+        options:
+          placeholder: No Shows-page link
+          values:
+            - { name: motel-california, label: Motel California }
+            - { name: nharcolepsy, label: Nharcolepsy }
+            - { name: cabaret-terrarium, label: Cabaret Terrarium }
+            - { name: animation, label: Animation }
       - { name: presenter, label: Presenter or festival, type: string }
       - { name: venue, label: Venue, type: string, required: true }
       - { name: city, label: City, type: string, required: true }
-      - { name: startDate, label: Start date, type: date, required: true }
-      - { name: endDate, label: End date, type: date, required: true }
+      - name: startDate
+        label: Start date
+        type: date
+        options: { format: yyyy-MM-dd }
+        required: true
+      - name: endDate
+        label: End date
+        type: date
+        options: { format: yyyy-MM-dd }
+        required: true
       - name: showtimes
         label: Showtimes
         type: object
         list: true
         fields:
-          - { name: datetime, label: Machine-readable date and time, type: string, required: true, description: "ISO format, for example 2027-05-09T18:30:00-04:00" }
-          - { name: label, label: Display date and time, type: string, required: true }
+          - name: datetime
+            label: Date and time
+            type: date
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm
+              step: 300
+            required: true
+          - { name: label, label: Optional display wording, type: string, description: "Leave blank to display the selected date and time automatically." }
       - { name: ticketUrl, label: Ticket URL, type: string }
       - { name: image, label: Optional image filename, type: string }
-      - { name: status, label: Status, type: select, options: [scheduled, cancelled, postponed, completed], default: scheduled, required: true }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values:
+            - { name: scheduled, label: Scheduled }
+            - { name: cancelled, label: Cancelled }
+            - { name: postponed, label: Postponed }
+            - { name: completed, label: Completed }
+        default: scheduled
+        required: true
       - { name: body, label: Additional details, type: rich-text }
 
   - name: homepage
@@ -79,7 +113,14 @@ content:
       - { name: slug, label: URL anchor, type: string, required: true }
       - { name: legacyAnchor, label: Preserved old anchor, type: string }
       - { name: order, label: Display order, type: number, required: true }
-      - { name: kind, label: Kind, type: select, options: [stage, animation], required: true }
+      - name: kind
+        label: Kind
+        type: select
+        options:
+          values:
+            - { name: stage, label: Stage show }
+            - { name: animation, label: Animation }
+        required: true
       - { name: principalImage, label: Principal image filename, type: string }
       - { name: principalAlt, label: Principal image alt text, type: text }
       - { name: principalCaption, label: Principal image caption, type: text }
@@ -110,7 +151,14 @@ content:
         type: object
         list: true
         fields:
-          - { name: provider, label: Provider, type: select, options: [youtube, vimeo], required: true }
+          - name: provider
+            label: Provider
+            type: select
+            options:
+              values:
+                - { name: youtube, label: YouTube }
+                - { name: vimeo, label: Vimeo }
+            required: true
           - { name: title, label: Accessible title, type: string, required: true }
           - { name: embedUrl, label: Embed URL, type: string, required: true }
       - name: letters
@@ -140,7 +188,12 @@ content:
         fields:
           - { name: id, label: Anchor ID, type: string, required: true }
           - { name: year, label: Year heading, type: string, required: true }
-          - { name: decade, label: Decade anchor, type: select, options: [2020s, 2010s, 2000s, 1990s, undated], required: true }
+          - name: decade
+            label: Decade anchor
+            type: select
+            options:
+              values: [2020s, 2010s, 2000s, 1990s, undated]
+            required: true
           - { name: sortDate, label: Sort date, type: string, required: true }
           - { name: date, label: Display date or range, type: string, required: true }
           - { name: production, label: Production, type: string, required: true }
@@ -219,6 +272,11 @@ content:
       - { name: displayDate, label: Display date, type: string, required: true }
       - { name: time, label: Time, type: string }
       - { name: location, label: Location, type: string }
-      - { name: author, label: Author, type: select, options: [Gustave, Nhar, Gustave and Nhar], required: true }
+      - name: author
+        label: Author
+        type: select
+        options:
+          values: [Gustave, Nhar, Gustave and Nhar]
+        required: true
       - { name: legacyAnchor, label: Legacy anchor, type: string }
       - { name: body, label: Entry, type: rich-text }

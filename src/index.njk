@@ -11,12 +11,12 @@ loadEngagements: true
       {% for engagement in collections.engagementsDisplay %}
         <article class="engagement{% if loop.first %} engagement--primary{% else %} engagement--compact{% endif %}" data-engagement data-start-date="{{ engagement.data.startDate }}" data-end-date="{{ engagement.data.endDate or engagement.data.startDate }}" data-status="{{ engagement.data.status or 'scheduled' }}">
           <p class="eyebrow" data-engagement-label>{% if engagement.data.eventState == 'recent' %}Most recent show{% elseif loop.first %}Next show{% else %}Later{% endif %}</p>
-          <h2><a href="/shows/#{{ engagement.data.productionSlug }}">{{ engagement.data.production }}</a></h2>
+          <h2>{% if engagement.data.productionSlug %}<a href="/shows/#{{ engagement.data.productionSlug }}">{{ engagement.data.production }}</a>{% else %}{{ engagement.data.production }}{% endif %}</h2>
           {% if engagement.data.presenter %}<p><strong>{{ engagement.data.presenter }}</strong></p>{% endif %}
           {% if engagement.data.status and engagement.data.status != 'scheduled' %}<p class="review-marker">Status: {{ engagement.data.status | upper }}</p>{% endif %}
           {% if engagement.data.image %}{% image engagement.data.image, engagement.data.production, "", "(max-width: 47rem) 100vw, 30vw" %}{% endif %}
           <p>{{ engagement.data.venue }}{% if engagement.data.city %}<br>{{ engagement.data.city }}{% endif %}</p>
-          {% if engagement.data.showtimes %}<ul class="showtimes">{% for showtime in engagement.data.showtimes %}<li><time datetime="{{ showtime.datetime }}">{{ showtime.label }}</time></li>{% endfor %}</ul>{% endif %}
+          {% if engagement.data.showtimes %}<ul class="showtimes">{% for showtime in engagement.data.showtimes %}<li><time datetime="{{ showtime.datetime | htmlDateTime }}">{{ showtime.label or (showtime.datetime | formatShowtime) }}</time></li>{% endfor %}</ul>{% endif %}
           {% if engagement.templateContent %}<div>{{ engagement.templateContent | safe }}</div>{% endif %}
           {% if engagement.data.ticketUrl %}<p data-ticket{% if engagement.data.eventState == 'recent' or (engagement.data.status and engagement.data.status != 'scheduled') %} hidden{% endif %}><a class="button-link" href="{{ engagement.data.ticketUrl }}" rel="noopener noreferrer">Tickets and details</a></p>{% endif %}
         </article>

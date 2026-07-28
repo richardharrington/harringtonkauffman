@@ -45,6 +45,23 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("findImage", (filename) => imagesByFilename[normalizeFilename(filename)]);
   eleventyConfig.addFilter("markdown", (value = "") => markdown.render(String(value)));
   eleventyConfig.addFilter("markdownInline", (value = "") => markdown.renderInline(String(value)));
+  eleventyConfig.addFilter("htmlDateTime", (value) => value instanceof Date ? value.toISOString() : String(value || ""));
+  eleventyConfig.addFilter("formatShowtime", (value) => {
+    const source = value instanceof Date ? value.toISOString() : String(value || "");
+    const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(source);
+    if (!match) return source;
+    const [, year, month, day, hour, minute] = match;
+    const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute)));
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: "UTC",
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    }).format(date);
+  });
   eleventyConfig.addFilter("byFilename", (items = []) => Object.fromEntries(items.map((item) => [item.filename, item])));
   eleventyConfig.addFilter("reverse", (items = []) => [...items].reverse());
   eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
@@ -69,7 +86,10 @@ export default function (eleventyConfig) {
     }));
     return orderEngagements(entries)
       .filter((item) => item.state === "future" || item.state === "recent")
-      .map((item) => ({ ...item.entry, data: { ...item.entry.data, eventState: item.state } }));
+      .map((item) => {
+        item.entry.data.eventState = item.state;
+        return item.entry;
+      });
   });
 
   eleventyConfig.addFilter("engagementState", (entry, now = new Date()) => engagementState(entry, now));

@@ -12,6 +12,25 @@ test("Pages CMS exposes the agreed editorial areas", async () => {
   ]) assert.ok(names.has(required), `missing CMS section: ${required}`);
 });
 
+test("every Pages CMS select field provides valid options", async () => {
+  const config = loadYaml(await readFile(".pages.yml", "utf8"));
+  const visit = (fields = []) => fields.flatMap((field) => [field, ...visit(field.fields)]);
+  const fields = config.content.flatMap((section) => visit(section.fields));
+  for (const field of fields.filter((item) => item.type === "select")) {
+    assert.ok(Array.isArray(field.options?.values), `${field.name} is missing options.values`);
+    assert.ok(field.options.values.length > 0, `${field.name} has no select options`);
+  }
+});
+
+test("engagement showtimes use a friendly date-and-time field", async () => {
+  const config = loadYaml(await readFile(".pages.yml", "utf8"));
+  const engagements = config.content.find((section) => section.name === "engagements");
+  const showtimes = engagements.fields.find((field) => field.name === "showtimes");
+  const datetime = showtimes.fields.find((field) => field.name === "datetime");
+  assert.equal(datetime.type, "date");
+  assert.equal(datetime.options.time, true);
+});
+
 test("Pages CMS does not expose presentation or build configuration", async () => {
   const source = await readFile(".pages.yml", "utf8");
   for (const prohibited of ["site.css", "netlify.toml", "_redirects", "eleventy.config"])
