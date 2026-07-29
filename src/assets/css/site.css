@@ -117,6 +117,14 @@
     font-weight: 700;
     color: var(--ink);
   }
+  .diary-discovery,
+  .diary-discovery-link {
+    font-size: 0.9rem;
+    font-weight: 750;
+  }
+  .diary-discovery {
+    margin: 0.75rem 0 0;
+  }
   [hidden] {
     display: none !important;
   }
@@ -192,13 +200,24 @@
   }
   .footer-inner {
     display: grid;
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: minmax(18rem, 2fr) minmax(12rem, 1fr) auto;
     gap: 1.5rem 3rem;
     padding-block: 2rem 3rem;
     font-size: 0.84rem;
   }
   .footer-inner p {
     margin: 0;
+  }
+  .footer-heading {
+    color: var(--muted);
+    font-weight: 750;
+  }
+  .footer-archive p + p,
+  .footer-meta p + p {
+    margin-top: 0.35rem;
+  }
+  .footer-meta {
+    text-align: right;
   }
   .social-links {
     display: flex;
@@ -222,6 +241,9 @@
     }
     .footer-inner {
       grid-template-columns: 1fr;
+    }
+    .footer-meta {
+      text-align: left;
     }
   }
 }
