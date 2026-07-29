@@ -42,6 +42,13 @@ test("anchor navigation does not animate scrolling", async () => {
   assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
 });
 
+test("cross-page fragments wait to reveal their target position", async () => {
+  const layout = await readFile("src/_includes/layouts/base.njk", "utf8");
+  assert.match(layout, /window\.location\.hash/);
+  assert.match(layout, /visibility:\s*hidden/);
+  assert.match(layout, /scrollIntoView/);
+});
+
 test("original images exclude obsolete thumbnail files", async () => {
   const images = await readdir("images");
   assert.deepEqual(images.filter((filename) => /_thumb\.[^.]+$/i.test(filename)), []);

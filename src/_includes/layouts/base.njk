@@ -3,6 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html.fragment-navigation-pending {
+      background: #f4efe5;
+    }
+    html.fragment-navigation-pending body {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+    (() => {
+      if (!window.location.hash) return;
+      const root = document.documentElement;
+      root.classList.add("fragment-navigation-pending");
+      window.setTimeout(() => root.classList.remove("fragment-navigation-pending"), 3000);
+    })();
+  </script>
   <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -48,6 +64,22 @@
       <div class="footer-meta"><p><a href="/press/#contact">Contact</a></p><p class="copyright">© {{ buildYear }} Harrington &amp; Kauffman</p></div>
     </div>
   </footer>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      if (!root.classList.contains("fragment-navigation-pending")) return;
+      let fragment;
+      try {
+        fragment = decodeURIComponent(window.location.hash.slice(1));
+      } catch {
+        fragment = window.location.hash.slice(1);
+      }
+      const target = document.getElementById(fragment) || document.getElementsByName(fragment)[0];
+      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+      root.classList.remove("fragment-navigation-pending");
+      if (!root.classList.length) root.removeAttribute("class");
+    })();
+  </script>
   {% if loadVideos %}<script type="module" src="/assets/js/video-facades.js"></script>{% endif %}
   {% if loadEngagements %}<script type="module" src="/assets/js/engagements.js"></script>{% endif %}
 </body>
