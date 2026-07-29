@@ -1,5 +1,5 @@
 ---
-production: Operation Crush the Rebels
+production: Operation Crush the Rebels 2
 productionSlug: motel-california
 presenter: Galactic Empire Productions
 venue: Death Star
