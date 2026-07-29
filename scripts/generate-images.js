@@ -65,7 +65,7 @@ const textSvg = Buffer.from(`
     <tspan x="665" dy="0">Harrington</tspan>
     <tspan x="665" dy="84">&amp; Kauffman</tspan>
   </text>
-  <line x1="665" y1="390" x2="1120" y2="378" stroke="#a52a25" stroke-width="5"/>
+  <line x1="665" y1="390" x2="1120" y2="378" stroke="#201f1c" stroke-width="5"/>
   <text x="665" y="448" fill="#201f1c" font-family="Arial, sans-serif" font-size="28">COMEDY THEATER</text>
 </svg>`);
 const portrait = await sharp(bicycle)
