@@ -6,9 +6,6 @@
   *::after {
     box-sizing: border-box;
   }
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     margin: 0;
   }
@@ -684,11 +681,6 @@
     }
     .primary-nav {
       column-gap: 0.9rem;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
     }
   }
 }

@@ -37,6 +37,11 @@ test("Pages CMS does not expose presentation or build configuration", async () =
     assert.equal(source.includes(prohibited), false, `CMS exposes ${prohibited}`);
 });
 
+test("anchor navigation does not animate scrolling", async () => {
+  const css = await readFile("src/assets/css/site.css", "utf8");
+  assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
+});
+
 test("legacy redirect rules cover all known public entry points", async () => {
   const redirects = await readFile("src/_redirects", "utf8");
   for (const legacy of [
