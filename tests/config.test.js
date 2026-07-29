@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { load as loadYaml } from "js-yaml";
 
 test("Pages CMS exposes the agreed editorial areas", async () => {
@@ -40,6 +40,28 @@ test("Pages CMS does not expose presentation or build configuration", async () =
 test("anchor navigation does not animate scrolling", async () => {
   const css = await readFile("src/assets/css/site.css", "utf8");
   assert.doesNotMatch(css, /scroll-behavior:\s*smooth/);
+});
+
+test("original images exclude obsolete thumbnail files", async () => {
+  const images = await readdir("images");
+  assert.deepEqual(images.filter((filename) => /_thumb\.[^.]+$/i.test(filename)), []);
+});
+
+test("original images exclude obsolete and redundant artifacts", async () => {
+  const images = new Set(await readdir("images"));
+  for (const filename of [
+    "5u84f48n.gif",
+    "Accordion_closeup.test.jpg",
+    "antidepressant-logo_official-1.gif",
+    "CabaretTerrarium353_indexpage.jpg",
+    "dot.gif",
+    "gustav_old_bigger.gif",
+    "gustave.gif",
+    "no_bones_banner.png",
+    "powered_white.gif",
+    "rulepixel999900.gif",
+    "transparent.gif",
+  ]) assert.equal(images.has(filename), false, `obsolete artifact remains: ${filename}`);
 });
 
 test("legacy redirect rules cover all known public entry points", async () => {
