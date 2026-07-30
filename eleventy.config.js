@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { load as loadYaml } from "js-yaml";
 import MarkdownIt from "markdown-it";
-import { dateAttribute, engagementState, orderEngagements } from "./src/assets/js/event-state.mjs";
+import { dateAttribute, orderEngagements } from "./src/assets/js/event-state.mjs";
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;",
@@ -44,7 +44,6 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("findImage", (filename) => imagesByFilename[normalizeFilename(filename)]);
   eleventyConfig.addFilter("markdown", (value = "") => markdown.render(String(value)));
-  eleventyConfig.addFilter("markdownInline", (value = "") => markdown.renderInline(String(value)));
   eleventyConfig.addFilter("htmlDateTime", dateAttribute);
   eleventyConfig.addFilter("formatShowtime", (value) => {
     const source = value instanceof Date ? value.toISOString() : String(value || "");
@@ -64,8 +63,6 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("byFilename", (items = []) => Object.fromEntries(items.map((item) => [item.filename, item])));
   eleventyConfig.addFilter("reverse", (items = []) => [...items].reverse());
-  eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
-  eleventyConfig.addFilter("externalRel", (url = "") => /^https?:\/\//.test(url) ? "noopener noreferrer" : "");
   eleventyConfig.addFilter("diaryAdjacent", (collection, inputPath, offset) => {
     const index = collection.findIndex((entry) => entry.inputPath === inputPath);
     return index < 0 ? undefined : collection[index + Number(offset)];
@@ -91,8 +88,6 @@ export default function (eleventyConfig) {
         return item.entry;
       });
   });
-
-  eleventyConfig.addFilter("engagementState", (entry, now = new Date()) => engagementState(entry, now));
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },

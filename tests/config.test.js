@@ -3,6 +3,12 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { load as loadYaml } from "js-yaml";
 
+test("builds remove stale output before generation", async () => {
+  const packageJson = JSON.parse(await readFile("package.json", "utf8"));
+  assert.match(packageJson.scripts.build, /^npm run clean &&/);
+  assert.match(packageJson.scripts.dev, /^npm run clean &&/);
+});
+
 test("Pages CMS exposes the agreed editorial areas", async () => {
   const config = loadYaml(await readFile(".pages.yml", "utf8"));
   const names = new Set(config.content.map((section) => section.name));

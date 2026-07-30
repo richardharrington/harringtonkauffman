@@ -242,7 +242,7 @@ Do not create an automated quote carousel. The initial featured quotation is:
 > they're meant to occupy.”
 > — Liz Nicholls, *Edmonton Journal*
 
-Verify exact wording and attribution against `Reviews.html` while migrating.
+The wording and attribution were migrated from the historical `Reviews.html`.
 
 ### Engagement states
 
@@ -311,9 +311,9 @@ Show both on Home and Shows. Do not load either third-party player until the
 visitor clicks a lightweight poster/facade. No autoplay. On Shows, place the live
 clip inside *Cabaret Terrarium*. Put *Le Yeti Rouge* in the distinct
 **Animation** section; do not call that section Film and do not present the
-animation as a stage show. Preserve credits currently found in `Company.html`,
-including animator Mike Scott and musician Raiven Hansmann, subject to factual
-verification.
+animation as a stage show. Preserve credits migrated from the historical
+`Company.html`, including animator Mike Scott and musician Raiven Hansmann,
+subject to factual verification.
 
 Allow optional future video entries for *Nharcolepsy* and *Motel California*;
 do not show empty placeholders publicly.
@@ -385,8 +385,8 @@ Patricia is a principal company collaborator and must not be demoted to a simple
 credit. Kristi McKay and other collaborators receive clear production credits
 but no long biography unless updated material is later supplied.
 
-Use current `Company.html` as source material, but avoid asserting that old
-biographical wording is current without verification. Use visible editorial
+Use the historical `Company.html` as source material, but avoid asserting that
+old biographical wording is current without verification. Use visible editorial
 markers where updates are needed. Do not require individual headshots; a company
 image and text-led biographies are sufficient.
 
@@ -406,9 +406,9 @@ The intended final curated section contains:
   surviving source link
 - Contact information
 
-Do not reproduce complete review articles. Extract strong, accurately attributed
-excerpts from `Reviews.html`; dead source links may be omitted or replaced with
-reliable archive links after verification.
+Do not reproduce complete review articles. Use strong, accurately attributed
+excerpts migrated from the historical `Reviews.html`; dead source links may be
+omitted or replaced with reliable archive links after verification.
 
 The user does not want to curate photographs yet. Create a provisional curated
 selection, followed by a conspicuous review-only section labeled exactly:
@@ -534,9 +534,11 @@ Create a useful custom 404 with primary navigation and one restrained temporary
 - Add an automated check for the Eleventy production build and broken internal
   links if a lightweight maintained tool is suitable.
 
-## Content-source map
+## Historical content-source map
 
-Inspect and migrate rather than discarding these sources:
+The legacy page files below were migration sources. Obsolete working-tree copies
+were removed after migration and remain available in Git history. The
+`harrington/` microsite and selected `images/` originals remain active exceptions:
 
 - `index.html`: current overview, quotes, video URLs, bicycle usage, most recent
   event, old diary/social links
@@ -552,7 +554,8 @@ Inspect and migrate rather than discarding these sources:
 - `diary/style.css`: not a visual design source; useful only for understanding
   export artifacts
 - `harrington/`: related Richard solo project; link from bio only if useful
-- `images/`: preserve all originals
+- `images/`: retain selected original production and press photographs; generate
+  responsive derivatives during the build
 
 Treat old content as potentially stale. Distinguish migration, light neutral
 editing, and invented character copy.
