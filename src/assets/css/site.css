@@ -256,7 +256,7 @@
     border-bottom: 1px solid var(--rule);
   }
   .home-hero-copy {
-    padding: clamp(3rem, 8vw, 7rem) max(1rem, calc((100vw - 78rem) / 2));
+    padding: clamp(3rem, 8vw, 5rem) max(1rem, calc((100vw - 78rem) / 2));
     padding-right: clamp(1.5rem, 5vw, 5rem);
   }
   .home-hero-image {
@@ -281,7 +281,7 @@
       serif;
   }
   .engagements {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
   }
   .engagement {
     padding: 1rem 0 1.25rem;
@@ -315,7 +315,7 @@
     cursor: pointer;
   }
   .home-section {
-    padding-block: clamp(3.5rem, 9vw, 7.5rem);
+    padding-block: clamp(2rem, 9vw, 3.5rem);
   }
   .home-intro {
     display: grid;
