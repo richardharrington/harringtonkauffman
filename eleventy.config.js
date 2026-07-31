@@ -62,6 +62,14 @@ export default function (eleventyConfig) {
     }).format(date);
   });
   eleventyConfig.addFilter("byFilename", (items = []) => Object.fromEntries(items.map((item) => [item.filename, item])));
+  eleventyConfig.addFilter("decades", (entries = []) => {
+    const seen = [];
+    for (const entry of entries) {
+      const decade = String(entry.decade || "undated");
+      if (!seen.includes(decade)) seen.push(decade);
+    }
+    return seen;
+  });
   eleventyConfig.addFilter("reverse", (items = []) => [...items].reverse());
   eleventyConfig.addFilter("diaryAdjacent", (collection, inputPath, offset) => {
     const index = collection.findIndex((entry) => entry.inputPath === inputPath);
