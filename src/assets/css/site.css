@@ -544,20 +544,6 @@
   .image-card a[download] {
     font-weight: 700;
   }
-  .overflow {
-    margin-top: 6rem;
-    padding: 1.5rem;
-    border: 4px dashed var(--red);
-  }
-  .overflow > h2 {
-    margin-top: 0;
-    font:
-      800 clamp(1.4rem, 4vw, 2rem)/1.2 ui-monospace,
-      monospace;
-  }
-  .overflow .image-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
   .review-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -650,9 +636,6 @@
     text-align: right;
   }
   @media (max-width: 65rem) {
-    .overflow .image-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
     .bio-grid {
       grid-template-columns: 1fr;
     }
@@ -681,7 +664,6 @@
       gap: 0.25rem;
     }
     .image-grid,
-    .overflow .image-grid,
     .review-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -691,7 +673,6 @@
   }
   @media (max-width: 31rem) {
     .image-grid,
-    .overflow .image-grid,
     .review-list,
     .context-images {
       grid-template-columns: 1fr;
