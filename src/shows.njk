@@ -35,7 +35,7 @@ loadVideos: true
         <div class="letter-grid">{% for letter in show.data.letters %}<article class="letter-placeholder"><h4>{{ letter.title }}</h4>{% if letter.image %}{% image letter.image, letter.caption, "", "(max-width: 47rem) 100vw, 38vw" %}{% endif %}<p>{{ letter.caption }}</p>{% if letter.date %}<p>Date: {{ letter.date }}</p>{% endif %}{% if letter.sender %}<p>Sender: {{ letter.sender }}</p>{% endif %}<div class="review-marker">{{ letter.transcript | markdown | safe }}</div><p class="review-marker">{{ letter.redactionNotes }}</p></article>{% endfor %}</div>
       </section>
     {% endif %}
-    {% if show.data.media %}<section aria-label="{{ show.data.title }} media"><h3>Watch</h3>{% for video in show.data.media %}{% include "partials/video.njk" %}{% endfor %}</section>{% endif %}
+    {% if show.data.media %}<section class="show-media" aria-label="{{ show.data.title }} media"><h3>Watch</h3>{% for video in show.data.media %}{% include "partials/video.njk" %}{% endfor %}</section>{% endif %}
   </article>
   {% endfor %}
 </div>
