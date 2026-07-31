@@ -26,7 +26,7 @@ loadVideos: true
       </div>
       <div>
         {% if show.data.principalImage %}<figure class="show-image">{% image show.data.principalImage, show.data.principalAlt, "", "(max-width: 47rem) 100vw, 40vw" %}{% if show.data.principalCaption %}<figcaption>{{ show.data.principalCaption }}</figcaption>{% endif %}</figure>{% endif %}
-        {% if show.data.additionalImages %}<div class="context-images">{% for item in show.data.additionalImages %}<figure>{% image item.filename, item.alt, "", "(max-width: 31rem) 100vw, 20vw" %}<figcaption>{{ item.caption }}</figcaption></figure>{% endfor %}</div>{% endif %}
+        {% if show.data.additionalImages %}<div class="context-images">{% for item in show.data.additionalImages %}{% set source = item.filename | findImage %}<figure style="--context-image-width: {{ source.width / source.height * 14 }}rem">{% image item.filename, item.alt, "", "(max-width: 31rem) 100vw, 20vw" %}<figcaption>{{ item.caption }}</figcaption></figure>{% endfor %}</div>{% endif %}
       </div>
     </div>
     {% if show.data.slug == 'motel-california' %}

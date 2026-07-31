@@ -318,11 +318,6 @@
   .home-section {
     padding-block: clamp(2rem, 9vw, 2.75rem);
   }
-  .home-intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 6rem;
-  }
   .featured-quote {
     max-width: 60rem;
     margin: 0;
@@ -425,22 +420,27 @@
   }
   .show-image img {
     width: 100%;
-    max-height: 43rem;
-    object-fit: cover;
+    height: auto;
   }
   .context-images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 1rem;
     margin-top: 1.5rem;
   }
   .context-images figure {
+    width: min(100%, var(--context-image-width));
+    max-width: 100%;
+    flex: none;
     margin: 0;
   }
   .context-images img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    height: auto;
+  }
+  .context-images figure:only-child {
+    width: 100%;
   }
   .credits {
     display: grid;
@@ -519,20 +519,23 @@
   .image-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: start;
     gap: 2rem 1rem;
   }
   .image-card {
+    width: 100%;
     min-width: 0;
     margin: 0;
   }
   .image-card picture {
     display: block;
-    background: #e6dccb;
   }
   .image-card img {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: auto;
+    max-height: 22rem;
     object-fit: contain;
+    object-position: left top;
   }
   .image-card figcaption {
     overflow-wrap: anywhere;
@@ -647,7 +650,6 @@
       border-left: 0;
       border-bottom: 1px solid var(--rule);
     }
-    .home-intro,
     .video-grid,
     .show-layout,
     .contact-grid,
@@ -668,8 +670,7 @@
   }
   @media (max-width: 31rem) {
     .image-grid,
-    .review-list,
-    .context-images {
+    .review-list {
       grid-template-columns: 1fr;
     }
     .primary-nav {
