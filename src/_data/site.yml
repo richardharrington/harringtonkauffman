@@ -11,7 +11,9 @@ contact:
   email: info@harringtonkauffman.com
   verified: false
 social:
-  - label: Harrington & Kauffman on Facebook
+  - label: Harrington & Kauffman
+    icon: facebook
     url: https://www.facebook.com/harringtonkauffman
-  - label: Gustave and Nhar on Facebook
+  - label: Gustave & Nhar
+    icon: facebook
     url: https://www.facebook.com/gustaveandnhar
