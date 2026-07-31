@@ -3,8 +3,6 @@ title: Animation
 slug: animation
 order: 4
 kind: animation
-principalImage: Gustave_and_Nhar_2_colorized.jpg
-principalAlt: Gustave and Nhar seated together on a blue bicycle.
 credits:
   - role: Featuring
     names: Richard Harrington and Chris Kauffman as Gustave and Nhar

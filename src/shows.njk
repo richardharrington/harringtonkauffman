@@ -11,7 +11,7 @@ loadVideos: true
   {% for show in collections.shows %}
   <article class="show-section" id="{{ show.data.slug }}">{% if show.data.legacyAnchor %}<span class="legacy-anchor" id="{{ show.data.legacyAnchor }}" aria-hidden="true"></span>{% endif %}
     <header class="show-heading"><h2>{% if show.data.kind == 'stage' %}<em>{{ show.data.title }}</em>{% else %}{{ show.data.title }}{% endif %}</h2><a href="#shows">Back to contents</a></header>
-    <div class="show-layout">
+    <div class="show-layout{% if not show.data.principalImage and not show.data.additionalImages %} show-layout--single{% endif %}">
       <div>
         <div class="prose">{{ show.templateContent | safe }}</div>
         {% if show.data.kind == 'stage' %}
