@@ -183,10 +183,10 @@
     text-decoration-thickness: 0.16em;
   }
   .page {
-    padding-block: clamp(3rem, 8vw, 7rem);
+    padding-block: clamp(2rem, 6vw, 4.5rem);
   }
   .page-intro {
-    margin-bottom: clamp(3rem, 8vw, 6rem);
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
   }
   .prose {
     max-width: var(--measure);
@@ -255,7 +255,7 @@
   .home-hero {
     display: grid;
     grid-template-columns: minmax(18rem, 0.82fr) minmax(20rem, 1.18fr);
-    min-height: min(49rem, calc(100vh - 6rem));
+    min-height: min(34rem, calc(100vh - 6rem));
   }
   .home-hero-copy {
     padding: clamp(3rem, 8vw, 5rem) max(1rem, calc((100vw - 78rem) / 2));
@@ -398,7 +398,7 @@
     list-style: none;
   }
   .show-section {
-    padding-block: 3rem 5rem;
+    padding-block: 2.5rem 3rem;
     scroll-margin-top: 1rem;
   }
   .legacy-anchor {
@@ -418,7 +418,7 @@
   .show-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
-    gap: 2rem clamp(2rem, 6vw, 6rem);
+    gap: 2rem clamp(1.5rem, 4vw, 3.5rem);
   }
   .show-layout--single {
     grid-template-columns: minmax(0, var(--measure));
