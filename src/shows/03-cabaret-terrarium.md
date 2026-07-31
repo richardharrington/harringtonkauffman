@@ -23,7 +23,7 @@ history:
   - text: Other engagements included The Box Performance Space in Albuquerque, Buntport Theater in Denver, and New York’s Antidepressant Festival, International Clown Theater Festival, and Triskelion Arts.
 media:
   - provider: youtube
-    title: Cabaret Terrarium — live performance clip (2009)
+    title: Cabaret Terrarium at the Edmonton Fringe (2009)
     embedUrl: https://www.youtube.com/embed/PNDHPTzSfBU
 permalink: false
 ---

@@ -29,10 +29,6 @@ loadEngagements: true
     {% image "Gustave_and_Nhar_2_colorized.jpg", "Gustave and Nhar seated together on a blue bicycle.", "", "(max-width: 47rem) 100vw, 60vw", "eager" %}
   </div>
 </section>
-<section class="home-section home-intro" aria-labelledby="introduction-title">
-  <div><p class="eyebrow">The company</p><h2 id="introduction-title">Earnest cabaret.<br>Uncertain geography.</h2></div>
-  <p>{{ site.homepageNote }} <a href="/about/">Meet the company.</a></p>
-</section>
 <section class="home-section" aria-label="Featured review">
   <blockquote class="featured-quote">
     <p>“{{ site.featuredQuote.text }}”</p>
@@ -40,13 +36,13 @@ loadEngagements: true
   </blockquote>
 </section>
 <section class="home-section" aria-labelledby="watch-title">
-  <p class="eyebrow">Watch</p><h2 id="watch-title">Two specimens</h2>
+  <h2 id="watch-title">Videos</h2>
   <div class="video-grid">
-    {% set video = { provider: 'YouTube', title: 'Cabaret Terrarium — live performance clip (2009)', embedUrl: 'https://www.youtube.com/embed/PNDHPTzSfBU' } %}{% include "partials/video.njk" %}
+    {% set video = { provider: 'YouTube', title: 'Cabaret Terrarium at the Edmonton Fringe (2009)', embedUrl: 'https://www.youtube.com/embed/PNDHPTzSfBU' } %}{% include "partials/video.njk" %}
     {% set video = { provider: 'Vimeo', title: 'Gustave and Nhar at Le Yeti Rouge', embedUrl: 'https://player.vimeo.com/video/184946795' } %}{% include "partials/video.njk" %}
   </div>
 </section>
 <nav class="path-grid" aria-label="Explore the work">
-  <a href="/shows/">Meet the shows →</a>
-  <a href="/performance-history/">Trace the touring history →</a>
+  <a href="/shows/">Shows →</a>
+  <a href="/performance-history/">Touring History →</a>
 </nav>

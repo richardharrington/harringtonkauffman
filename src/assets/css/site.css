@@ -64,7 +64,7 @@
     letter-spacing: -0.035em;
   }
   h2 {
-    margin: 3.5rem 0 1rem;
+    margin: 1.5rem 0 1rem;
     font-size: clamp(2rem, 5vw, 2.8rem);
     font-weight: 500;
   }
@@ -144,9 +144,6 @@
   .skip-link:focus {
     transform: none;
   }
-  .site-header {
-    border-bottom: 1px solid var(--rule);
-  }
   .header-inner,
   .footer-inner,
   .page,
@@ -195,7 +192,6 @@
     max-width: var(--measure);
   }
   .site-footer {
-    margin-top: 5rem;
     border-top: 1px solid var(--rule);
   }
   .footer-inner {
@@ -253,7 +249,6 @@
     display: grid;
     grid-template-columns: minmax(18rem, 0.82fr) minmax(20rem, 1.18fr);
     min-height: min(49rem, calc(100vh - 6rem));
-    border-bottom: 1px solid var(--rule);
   }
   .home-hero-copy {
     padding: clamp(3rem, 8vw, 5rem) max(1rem, calc((100vw - 78rem) / 2));
@@ -262,7 +257,6 @@
   .home-hero-image {
     min-height: 28rem;
     overflow: hidden;
-    border-left: 1px solid var(--rule);
     background: #ddd1bb;
   }
   .home-hero-image picture,
@@ -315,7 +309,7 @@
     cursor: pointer;
   }
   .home-section {
-    padding-block: clamp(2rem, 9vw, 3.5rem);
+    padding-block: clamp(2rem, 9vw, 2.75rem);
   }
   .home-intro {
     display: grid;
@@ -384,7 +378,6 @@
   .path-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-block: 1px solid var(--rule);
   }
   .path-grid a {
     padding: 2.5rem;
@@ -392,9 +385,6 @@
     font:
       clamp(1.5rem, 3vw, 2.5rem)/1.2 Georgia,
       serif;
-  }
-  .path-grid a + a {
-    border-left: 1px solid var(--rule);
   }
   .toc {
     display: flex;
@@ -406,7 +396,6 @@
   }
   .show-section {
     padding-block: 3rem 5rem;
-    border-bottom: 1px solid var(--rule);
     scroll-margin-top: 1rem;
   }
   .legacy-anchor {
@@ -676,10 +665,6 @@
     .contact-grid,
     .diary-years {
       grid-template-columns: 1fr;
-    }
-    .path-grid a + a {
-      border-top: 1px solid var(--rule);
-      border-left: 0;
     }
     .ledger li {
       grid-template-columns: 1fr;

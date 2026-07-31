@@ -20,5 +20,4 @@ permalink: false
 ---
 In 2016, Harrington & Kauffman completed their first animation project,
 *Gustave and Nhar at Le Yeti Rouge*, with animator Mike Scott and musician
-Raiven Hansmann. This is a distinct animation, not one of the three stage
-productions.
+Raiven Hansmann.
