@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/diary-entry.njk",
+  "ogType": "article"
+}

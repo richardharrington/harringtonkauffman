@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+permalink: /about/index.html
+title: About
+description: Richard Harrington, Chris Kauffman, Patricia Buckley, and the history of Harrington & Kauffman.
+---
+<div class="page">
+  <header class="page-intro"><p class="eyebrow">The company</p><h1>Harrington, Kauffman, and Buckley</h1><div class="prose">{{ company.history | markdown | safe }}</div><p class="diary-discovery"><a href="/diary/">Gustave and Nhar’s Diary</a></p><p class="review-marker">{{ company.editorialNote }}</p></header>
+  <figure class="show-image">{% image "Gustave_and_Nhar_7.jpg", "Richard Harrington and Chris Kauffman performing together as Gustave and Nhar.", "", "(max-width: 47rem) 100vw, 78rem" %}<figcaption>Richard Harrington (left) and Chris Kauffman (right). Photograph by Josh Carter.</figcaption></figure>
+  <section aria-labelledby="bios-title"><p class="eyebrow">Biographies</p><h2 id="bios-title">Three collaborators</h2><div class="bio-grid">{% for bio in company.bios %}<article class="bio"><h2>{{ bio.name }}</h2><p class="meta">{{ bio.role }}</p><div>{{ bio.text | markdown | safe }}</div>{% if bio.relatedUrl %}<p><a href="{{ bio.relatedUrl }}">{{ bio.relatedLabel }}</a></p>{% endif %}</article>{% endfor %}</div></section>
+  <section class="prose"><h2>Production collaborators</h2>{% for collaborator in credits.collaborators %}<h3>{{ collaborator.name }}</h3><p><strong>{{ collaborator.role }}.</strong> {{ collaborator.note }}</p>{% endfor %}</section>
+</div>

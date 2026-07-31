@@ -1,0 +1,314 @@
+entries:
+  - id: no-bones-2026
+    year: "2026"
+    decade: "2020s"
+    sortDate: "2026-05-10"
+    date: May 9–10, 2026
+    production: Harrington & Kauffman variety-show appearance
+    showAnchor: shows
+    presenter: No Bones — A Festival of Humerus Performance
+    venue: Vineyard Playhouse
+    city: Vineyard Haven
+    region: Massachusetts, USA
+    note: Two appearances in the festival’s star-studded Variety Show; the production title was not stated on the previous site.
+  - id: indy-fringe-2019
+    year: "2019"
+    decade: "2010s"
+    sortDate: "2019-08-18"
+    date: August 15–18, 2019
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: Indianapolis Fringe Festival
+    venue: IndyEleven Theatre
+    city: Indianapolis
+    region: Indiana, USA
+  - id: winnipeg-2010
+    year: "2010"
+    decade: "2010s"
+    sortDate: "2010-07-24"
+    date: July 15–24, 2010
+    production: Cabaret Terrarium
+    showAnchor: cabaret-terrarium
+    presenter: Winnipeg Fringe Festival
+    venue: ""
+    city: Winnipeg
+    region: Manitoba, Canada
+  - id: triskelion-2010
+    year: "2010"
+    decade: "2010s"
+    sortDate: "2010-02-14"
+    date: February 5–14, 2010
+    production: Cabaret Terrarium
+    showAnchor: cabaret-terrarium
+    presenter: ""
+    venue: Triskelion Arts
+    city: Brooklyn
+    region: New York, USA
+  - id: edmonton-2009
+    year: "2009"
+    decade: "2000s"
+    sortDate: "2009-08-31"
+    date: August 2009
+    production: Cabaret Terrarium
+    showAnchor: cabaret-terrarium
+    presenter: Edmonton Fringe Festival
+    venue: ""
+    city: Edmonton
+    region: Alberta, Canada
+    note: Documented by contemporary reviews.
+  - id: edmonton-2004
+    year: "2004"
+    decade: "2000s"
+    sortDate: "2004-08-17"
+    date: August 2004
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: Edmonton Fringe Festival
+    venue: ""
+    city: Edmonton
+    region: Alberta, Canada
+    note: Contemporary reviews appeared August 13–21.
+  - id: seattle-2003
+    year: "2003"
+    decade: "2000s"
+    sortDate: "2003-09-24"
+    date: September 2003
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: Seattle Fringe Festival
+    venue: ""
+    city: Seattle
+    region: Washington, USA
+  - id: new-york-fringe-2003
+    year: "2003"
+    decade: "2000s"
+    sortDate: "2003-08-31"
+    date: 2003
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: New York International Fringe Festival
+    venue: ""
+    city: New York
+    region: New York, USA
+    note: Year documented by surviving review references; exact run dates not recovered.
+  - id: toronto-2003
+    year: "2003"
+    decade: "2000s"
+    sortDate: "2003-07-31"
+    date: July 2003
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: Toronto Fringe Festival
+    venue: ""
+    city: Toronto
+    region: Ontario, Canada
+    note: Documented by contemporary review links; exact run dates not recovered.
+  - id: winnipeg-2002
+    year: "2002"
+    decade: "2000s"
+    sortDate: "2002-07-25"
+    date: July 2002
+    production: Nharcolepsy
+    showAnchor: nharcolepsy
+    presenter: Winnipeg Fringe Festival
+    venue: The Warehouse
+    city: Winnipeg
+    region: Manitoba, Canada
+    note: Contemporary reviews appeared July 20–25.
+  - id: orlando-2002
+    year: "2002"
+    decade: "2000s"
+    sortDate: "2002-05-22"
+    date: May 2002
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Orlando International Fringe Festival
+    venue: ""
+    city: Orlando
+    region: Florida, USA
+  - id: albuquerque-2002
+    year: "2002"
+    decade: "2000s"
+    sortDate: "2002-01-20"
+    date: January 2002
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Revolutions International Theatre Festival
+    venue: The Outpost
+    city: Albuquerque
+    region: New Mexico, USA
+  - id: baltimore-2001
+    year: "2001"
+    decade: "2000s"
+    sortDate: "2001-10-24"
+    date: October 2001
+    production: Motel California
+    showAnchor: motel-california
+    presenter: ""
+    venue: Theatre Project
+    city: Baltimore
+    region: Maryland, USA
+    note: Documented by the Baltimore CityPaper review dated October 24.
+  - id: edmonton-2001
+    year: "2001"
+    decade: "2000s"
+    sortDate: "2001-08-24"
+    date: August 2001
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Edmonton Fringe Festival
+    venue: ""
+    city: Edmonton
+    region: Alberta, Canada
+    note: Performed under the interim title The Show Formerly Known As.
+  - id: aspen-2001
+    year: "2001"
+    decade: "2000s"
+    sortDate: "2001-04-01"
+    date: Spring 2001
+    production: Motel California
+    showAnchor: motel-california
+    presenter: HBO U.S. Comedy Arts Festival
+    venue: ""
+    city: Aspen
+    region: Colorado, USA
+  - id: vancouver-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-09-17"
+    date: September 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Vancouver Fringe Festival
+    venue: ""
+    city: Vancouver
+    region: British Columbia, Canada
+  - id: victoria-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-08-31"
+    date: August 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Victoria Fringe Festival
+    venue: Elementary-school basketball court (venue name not recovered)
+    city: Victoria
+    region: British Columbia, Canada
+  - id: prince-george-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-08-21"
+    date: August 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Prince George Fringe Festival
+    venue: Native American center (venue name not recovered)
+    city: Prince George
+    region: British Columbia, Canada
+  - id: saskatoon-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-08-10"
+    date: August 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Saskatoon Fringe Festival
+    venue: ""
+    city: Saskatoon
+    region: Saskatchewan, Canada
+    note: Received a Critic’s Choice Media award and an additional performance.
+  - id: winnipeg-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-07-31"
+    date: July 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Winnipeg Fringe Festival
+    venue: ""
+    city: Winnipeg
+    region: Manitoba, Canada
+    note: The diary records an opening on July 21 and eight performances; the closing date is TBD — VERIFY.
+  - id: mezi-ploty
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-04-30"
+    date: Before May 2000 — exact date not recovered
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Mezi Ploty (Between the Lines)
+    venue: Bohnice Psychiatric Institute
+    city: Prague
+    region: Czech Republic
+    note: Participation was made possible in part by a U.S. Information Service grant.
+  - id: westbeth-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-05-31"
+    date: May 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: ""
+    venue: Westbeth Theatre Center
+    city: New York
+    region: New York, USA
+    note: Four Sunday performances were announced in Time Out New York.
+  - id: st-marks-2000
+    year: "2000"
+    decade: "2000s"
+    sortDate: "2000-03-03"
+    date: Through March 3, 2000
+    production: Motel California
+    showAnchor: motel-california
+    presenter: ""
+    venue: St. Mark’s Theater
+    city: New York
+    region: New York, USA
+    note: Performed under its original title.
+  - id: pure-pop-1999
+    year: "1999"
+    decade: "1990s"
+    sortDate: "1999-09-20"
+    date: September 1999
+    production: Motel California
+    showAnchor: motel-california
+    presenter: Pure Pop Festival
+    venue: NADA 45
+    city: New York
+    region: New York, USA
+    note: Performed under its original title.
+  - id: ny-fringe-1999
+    year: "1999"
+    decade: "1990s"
+    sortDate: "1999-08-31"
+    date: 1999 — exact date not recovered
+    production: Motel California
+    showAnchor: motel-california
+    presenter: New York International Fringe Festival
+    venue: ""
+    city: New York
+    region: New York, USA
+  - id: surf-reality-1999
+    year: "1999"
+    decade: "1990s"
+    sortDate: "1999-01-01"
+    date: 1999 — exact date not recovered
+    production: Motel California
+    showAnchor: motel-california
+    presenter: ""
+    venue: Surf Reality
+    city: New York
+    region: New York, USA
+    note: Debut engagement.
+  - id: dates-not-recovered
+    year: Date not yet recovered
+    decade: undated
+    sortDate: "0000-00-00"
+    date: Dates not yet recovered
+    production: Additional documented touring engagements
+    showAnchor: shows
+    presenter: ""
+    venue: ""
+    city: ""
+    region: ""
+    note: Motel California also played Montreal and Calgary fringe festivals, Buntport Theater, and Gettysburg College. Nharcolepsy also played Thunder Bay, Victoria, and San Francisco fringe festivals, Buntport Theater, the Revolutions Festival, Gettysburg College, the Red Room, and Gene Frankel Theatre. Cabaret Terrarium also played Vancouver and San Francisco fringe festivals, The Box in Albuquerque, Buntport Theater, and New York’s Antidepressant and International Clown Theater festivals. Individual dates and run boundaries remain TBD — VERIFY.

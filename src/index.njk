@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: Harrington & Kauffman
+description: Comedy theater by Richard Harrington and Chris Kauffman as Gustave and Nhar.
+loadVideos: true
+loadEngagements: true
+---
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <div class="engagements" data-engagements>
+      {% for engagement in collections.engagementsDisplay %}
+        <article class="engagement{% if loop.first %} engagement--primary{% else %} engagement--compact{% endif %}" data-engagement data-start-date="{{ engagement.data.startDate | htmlDateTime }}" data-end-date="{{ (engagement.data.endDate or engagement.data.startDate) | htmlDateTime }}" data-status="{{ engagement.data.status or 'scheduled' }}">
+          <p class="eyebrow" data-engagement-label>{% if engagement.data.eventState == 'recent' %}Most recent show{% elseif loop.first %}Next show{% else %}Later{% endif %}</p>
+          <h2>{% if engagement.data.productionSlug %}<a href="/shows/#{{ engagement.data.productionSlug }}">{{ engagement.data.production }}</a>{% else %}{{ engagement.data.production }}{% endif %}</h2>
+          {% if engagement.data.presenter %}<p><strong>{{ engagement.data.presenter }}</strong></p>{% endif %}
+          {% if engagement.data.status and engagement.data.status != 'scheduled' %}<p class="review-marker">Status: {{ engagement.data.status | upper }}</p>{% endif %}
+          {% if engagement.data.image %}{% image engagement.data.image, engagement.data.production, "", "(max-width: 47rem) 100vw, 30vw" %}{% endif %}
+          <p>{{ engagement.data.venue }}{% if engagement.data.city %}<br>{{ engagement.data.city }}{% endif %}</p>
+          {% if engagement.data.showtimes %}<ul class="showtimes">{% for showtime in engagement.data.showtimes %}<li><time datetime="{{ showtime.datetime | htmlDateTime }}">{{ showtime.label or (showtime.datetime | formatShowtime) }}</time></li>{% endfor %}</ul>{% endif %}
+          {% if engagement.templateContent %}<div>{{ engagement.templateContent | safe }}</div>{% endif %}
+          {% if engagement.data.ticketUrl %}<p data-ticket{% if engagement.data.eventState == 'recent' or (engagement.data.status and engagement.data.status != 'scheduled') %} hidden{% endif %}><a class="button-link" href="{{ engagement.data.ticketUrl }}" rel="noopener noreferrer">Tickets and details</a></p>{% endif %}
+        </article>
+      {% endfor %}
+      <p data-no-engagements{% if collections.engagementsDisplay.length %} hidden{% endif %}><strong>No shows currently scheduled. Check back later!</strong></p>
+    </div>
+    <p class="identification">{{ site.introduction }}</p>
+  </div>
+  <div class="home-hero-image">
+    {% image "Gustave_and_Nhar_2_colorized.jpg", "Gustave and Nhar seated together on a blue bicycle.", "", "(max-width: 47rem) 100vw, 60vw", "eager" %}
+  </div>
+</section>
+<section class="home-section" aria-label="Featured review">
+  <blockquote class="featured-quote">
+    <p>“{{ site.featuredQuote.text }}”</p>
+    <footer>— {{ site.featuredQuote.critic }}, <cite>{{ site.featuredQuote.publication }}</cite></footer>
+  </blockquote>
+</section>
+<section class="home-section" aria-labelledby="watch-title">
+  <h2 id="watch-title">Videos</h2>
+  <div class="video-grid">
+    {% set video = { provider: 'YouTube', title: 'Cabaret Terrarium at the Edmonton Fringe (2009)', embedUrl: 'https://www.youtube.com/embed/PNDHPTzSfBU' } %}{% include "partials/video.njk" %}
+    {% set video = { provider: 'Vimeo', title: 'Gustave and Nhar at Le Yeti Rouge', embedUrl: 'https://player.vimeo.com/video/184946795' } %}{% include "partials/video.njk" %}
+  </div>
+</section>

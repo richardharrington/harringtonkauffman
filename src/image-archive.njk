@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+permalink: /press/image-archive/index.html
+title: Image Archive
+description: Complete original-image archive for Harrington & Kauffman.
+---
+{% set pressByName = pressImages.items | byFilename %}
+<div class="page">
+  <header class="page-intro"><p class="eyebrow">Press / Image Archive</p><h1>Every original image</h1><p class="prose">All {{ imageArchive.length }} files from the original image directory are retained here. Thumbnails are generated for browsing; each download link returns the untouched source file. For a shorter provisional selection, visit <a href="/press/">Press &amp; Contact</a>.</p></header>
+  <div class="image-grid">{% for source in imageArchive %}{% set detail = pressByName[source.filename] %}<figure class="image-card" id="{{ source.filename | lower | replace('.', '-') | replace('_', '-') }}">{% image source.filename, detail.caption if detail else source.filename, "", "(max-width: 31rem) 100vw, (max-width: 47rem) 50vw, 26vw" %}<figcaption><strong>{{ source.filename }}</strong><br>{% if detail %}{{ detail.caption }}{% if detail.photographer %} Photograph by {{ detail.photographer }}.{% endif %}{% else %}<span class="review-marker">TBD — PHOTOGRAPHER/CAPTION. INFERRED FROM FILENAME: {{ source.filename }}</span>{% endif %}<br>{{ source.width }} × {{ source.height }} · <a href="{{ source.source }}" download>Download original</a></figcaption></figure>{% endfor %}</div>
+</div>

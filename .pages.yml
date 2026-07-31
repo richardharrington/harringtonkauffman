@@ -1,0 +1,282 @@
+media:
+  input: images
+  output: /images
+
+content:
+  - name: engagements
+    label: Upcoming engagements
+    type: collection
+    path: src/engagements
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [production, startDate, city, status]
+      primary: production
+      sort: [startDate]
+    fields:
+      - { name: production, label: Production, type: string, required: true }
+      - name: productionSlug
+        label: Link to an existing Shows section
+        type: select
+        options:
+          placeholder: No Shows-page link
+          values:
+            - { name: motel-california, label: Motel California }
+            - { name: nharcolepsy, label: Nharcolepsy }
+            - { name: cabaret-terrarium, label: Cabaret Terrarium }
+            - { name: animation, label: Animation }
+      - { name: presenter, label: Presenter or festival, type: string }
+      - { name: venue, label: Venue, type: string, required: true }
+      - { name: city, label: City, type: string, required: true }
+      - name: startDate
+        label: Start date
+        type: date
+        options: { format: yyyy-MM-dd }
+        required: true
+      - name: endDate
+        label: End date
+        type: date
+        options: { format: yyyy-MM-dd }
+        required: true
+      - name: showtimes
+        label: Showtimes
+        type: object
+        list: true
+        fields:
+          - name: datetime
+            label: Date and time
+            type: date
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm
+              step: 300
+            required: true
+          - { name: label, label: Optional display wording, type: string, description: "Leave blank to display the selected date and time automatically." }
+      - { name: ticketUrl, label: Ticket URL, type: string }
+      - { name: image, label: Optional image filename, type: string }
+      - name: status
+        label: Status
+        type: select
+        options:
+          values:
+            - { name: scheduled, label: Scheduled }
+            - { name: cancelled, label: Cancelled }
+            - { name: postponed, label: Postponed }
+            - { name: completed, label: Completed }
+        default: scheduled
+        required: true
+      - { name: body, label: Additional details, type: rich-text }
+
+  - name: homepage
+    label: Homepage, contact, and social content
+    type: file
+    path: src/_data/site.yml
+    format: yaml
+    fields:
+      - { name: title, label: Site title, type: string, required: true }
+      - { name: url, label: Canonical site URL, type: string, required: true }
+      - { name: description, label: Site description, type: text, required: true }
+      - { name: introduction, label: Homepage introduction, type: text, required: true }
+      - { name: homepageNote, label: Homepage company note, type: text, required: true }
+      - name: featuredQuote
+        label: Featured quotation
+        type: object
+        fields:
+          - { name: text, label: Quotation, type: text, required: true }
+          - { name: critic, label: Critic, type: string, required: true }
+          - { name: publication, label: Publication, type: string, required: true }
+      - name: contact
+        label: Contact address
+        type: object
+        fields:
+          - { name: email, label: Email, type: string, required: true }
+          - { name: verified, label: Email has been tested, type: boolean, default: false }
+      - name: social
+        label: Social links
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Link label or review placeholder, type: string, required: true }
+          - { name: url, label: URL, type: string }
+
+  - name: shows
+    label: Show descriptions and histories
+    type: collection
+    path: src/shows
+    format: yaml-frontmatter
+    view:
+      fields: [title, order, kind]
+      primary: title
+      sort: [order]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: slug, label: URL anchor, type: string, required: true }
+      - { name: legacyAnchor, label: Preserved old anchor, type: string }
+      - { name: order, label: Display order, type: number, required: true }
+      - name: kind
+        label: Kind
+        type: select
+        options:
+          values:
+            - { name: stage, label: Stage show }
+            - { name: animation, label: Animation }
+        required: true
+      - { name: principalImage, label: Principal image filename, type: string }
+      - { name: principalAlt, label: Principal image alt text, type: text }
+      - { name: principalCaption, label: Principal image caption, type: text }
+      - name: additionalImages
+        label: Additional images (maximum two initially)
+        type: object
+        list: true
+        fields:
+          - { name: filename, label: Filename, type: string, required: true }
+          - { name: alt, label: Alt text, type: text, required: true }
+          - { name: caption, label: Caption and credit, type: text }
+      - { name: development, label: Development and evolution, type: text }
+      - name: credits
+        label: Credits
+        type: object
+        list: true
+        fields:
+          - { name: role, label: Role, type: string, required: true }
+          - { name: names, label: Names, type: string, required: true }
+      - name: history
+        label: Touring-history summary
+        type: object
+        list: true
+        fields:
+          - { name: text, label: Entry, type: text, required: true }
+      - name: media
+        label: Media
+        type: object
+        list: true
+        fields:
+          - name: provider
+            label: Provider
+            type: select
+            options:
+              values:
+                - { name: youtube, label: YouTube }
+                - { name: vimeo, label: Vimeo }
+            required: true
+          - { name: title, label: Accessible title, type: string, required: true }
+          - { name: embedUrl, label: Embed URL, type: string, required: true }
+      - name: letters
+        label: Cease-and-desist letter pages
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Placeholder title, type: string, required: true }
+          - { name: image, label: Scan filename, type: string }
+          - { name: date, label: Date, type: string }
+          - { name: sender, label: Sender, type: string }
+          - { name: caption, label: Caption, type: text }
+          - { name: transcript, label: Accessible transcript, type: rich-text }
+          - { name: redactionNotes, label: Redaction notes, type: text }
+      - { name: body, label: Synopsis, type: rich-text, required: true }
+
+  - name: performanceHistory
+    label: Performance-history entries
+    type: file
+    path: src/_data/performanceHistory.yml
+    format: yaml
+    fields:
+      - name: entries
+        label: Entries
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Anchor ID, type: string, required: true }
+          - { name: year, label: Year heading, type: string, required: true }
+          - name: decade
+            label: Decade anchor
+            type: select
+            options:
+              values: [2020s, 2010s, 2000s, 1990s, undated]
+            required: true
+          - { name: sortDate, label: Sort date, type: string, required: true }
+          - { name: date, label: Display date or range, type: string, required: true }
+          - { name: production, label: Production, type: string, required: true }
+          - { name: showAnchor, label: Shows-page anchor, type: string, required: true }
+          - { name: presenter, label: Presenter or festival, type: string }
+          - { name: venue, label: Venue, type: string }
+          - { name: city, label: City, type: string }
+          - { name: region, label: Region and country, type: string }
+          - { name: note, label: Factual note, type: text }
+
+  - name: company
+    label: Company history and biographies
+    type: file
+    path: src/_data/company.yml
+    format: yaml
+    fields:
+      - { name: history, label: Company history, type: rich-text, required: true }
+      - { name: editorialNote, label: Visible editorial note, type: text }
+      - name: bios
+        label: Biographies
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Company role, type: string, required: true }
+          - { name: text, label: Biography, type: rich-text, required: true }
+          - { name: relatedUrl, label: Related-work URL, type: string }
+          - { name: relatedLabel, label: Related-work link label, type: string }
+
+  - name: reviews
+    label: Review excerpts
+    type: file
+    path: src/_data/reviews.yml
+    format: yaml
+    fields:
+      - name: items
+        label: Excerpts
+        type: object
+        list: true
+        fields:
+          - { name: text, label: Excerpt, type: text, required: true }
+          - { name: critic, label: Critic, type: string, required: true }
+          - { name: publication, label: Publication, type: string, required: true }
+          - { name: year, label: Year, type: number, required: true }
+          - { name: production, label: Production, type: string, required: true }
+          - { name: sourceUrl, label: Surviving source URL, type: string }
+
+  - name: pressImages
+    label: Press images and captions
+    type: file
+    path: src/_data/pressImages.yml
+    format: yaml
+    fields:
+      - name: items
+        label: Images
+        type: object
+        list: true
+        fields:
+          - { name: filename, label: Source filename, type: string, required: true }
+          - { name: curated, label: Include in provisional selection, type: boolean, default: false }
+          - { name: caption, label: Caption, type: text, required: true }
+          - { name: photographer, label: Photographer, type: string }
+
+  - name: diary
+    label: Diary entries
+    type: collection
+    path: src/diary
+    format: yaml-frontmatter
+    view:
+      fields: [title, entryDate, author, location]
+      primary: title
+      sort: [entryDate]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: entryDate, label: Entry date, type: date, required: true }
+      - { name: displayDate, label: Display date, type: string, required: true }
+      - { name: time, label: Time, type: string }
+      - { name: location, label: Location, type: string }
+      - name: author
+        label: Author
+        type: select
+        options:
+          values: [Gustave, Nhar, Gustave and Nhar]
+        required: true
+      - { name: legacyAnchor, label: Legacy anchor, type: string }
+      - { name: body, label: Entry, type: rich-text }

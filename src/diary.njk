@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+permalink: /diary/index.html
+title: Diary
+description: Gustave and Nhar’s preserved diaries from 2000 and 2010.
+---
+<div class="page">
+  <header class="page-intro"><p class="eyebrow">Diaries</p><h1>Gustave and Nhar’s diary</h1><p class="prose">(diary of the 2000 Canadian Fringe Festival circuit, and some entries leading up to some shows in Brooklyn and Winnipeg in 2010)</p><p class="prose note">Editorial note: the 2000 diary preserves the bracketed substitutions that were first made in the text in 2001: <code>[the Great One]</code> for Don Henley, and <code>[the One True Song]</code> for Hotel California (the original name of the show Motel California). See the story of <a href="/shows/#letters-title">the cease and desist letters from the Eagles and Don Henley</a>.</p></header>
+  <div class="diary-years">
+    <section id="diary-2010"><h2>2010</h2><ol class="diary-list">{% for entry in collections.diary | reverse %}{% if entry.data.entryDate.slice(0, 4) == '2010' %}<li id="{{ entry.data.legacyAnchor }}"><time datetime="{{ entry.data.entryDate }}">{{ entry.data.displayDate }}</time><br><a href="{{ entry.url }}">{{ entry.data.title }}</a>{% if entry.data.location %}<br><span class="note">{{ entry.data.location }}</span>{% endif %}<br><span class="meta">By {{ entry.data.author }}</span></li>{% endif %}{% endfor %}</ol></section>
+    <section id="diary-2000"><h2>2000</h2><ol class="diary-list">{% for entry in collections.diary | reverse %}{% if entry.data.entryDate.slice(0, 4) == '2000' %}<li id="{{ entry.data.legacyAnchor }}"><time datetime="{{ entry.data.entryDate }}">{{ entry.data.displayDate }}</time><br><a href="{{ entry.url }}">{{ entry.data.title }}</a>{% if entry.data.location %}<br><span class="note">{{ entry.data.location }}</span>{% endif %}<br><span class="meta">By {{ entry.data.author }}</span></li>{% endif %}{% endfor %}</ol></section>
+  </div>
+</div>

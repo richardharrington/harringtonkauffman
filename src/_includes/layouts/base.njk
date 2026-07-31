@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html.fragment-navigation-pending {
+      background: #f4efe5;
+    }
+    html.fragment-navigation-pending body {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+    (() => {
+      if (!window.location.hash) return;
+      const root = document.documentElement;
+      root.classList.add("fragment-navigation-pending");
+      window.setTimeout(() => root.classList.remove("fragment-navigation-pending"), 3000);
+    })();
+  </script>
+  <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or '/generated/social-default.jpg' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body class="{{ bodyClass or '' }}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="masthead" href="/" aria-label="Harrington & Kauffman, home">Harrington <span>&amp;</span> Kauffman</a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="/shows/"{% if page.url == '/shows/' %} aria-current="page"{% endif %}>Shows</a>
+        <a href="/performance-history/"{% if page.url == '/performance-history/' %} aria-current="page"{% endif %}>Performance History</a>
+        <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        <a href="/press/"{% if page.url == '/press/' or page.url == '/press/image-archive/' %} aria-current="page"{% endif %}>Press &amp; Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-column" aria-label="Explore">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="/shows/">Shows</a></li>
+          <li><a href="/performance-history/">Performance History</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/press/">Press &amp; Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-column" aria-label="Archive">
+        <p class="footer-heading">Archive</p>
+        <ul>
+          <li><a href="/diary/">Gustave and Nhar’s Diary</a></li>
+          <li><a href="/press/image-archive/">Image Archive</a></li>
+        </ul>
+      </nav>
+      <div class="footer-column">
+        <p class="footer-heading">Connect</p>
+        <ul>
+          <li><a href="/press/#contact">Contact</a></li>
+          {% for social in site.social %}
+            <li><a class="footer-social-link" href="{{ social.url }}" rel="noopener noreferrer">{% if social.icon == 'facebook' %}<svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-3.3 0-6 2.7-6 6v2H5v4h3v8h4v-8h3l1-4h-4v-2c0-1.1.9-2 2-2Z"/></svg>{% endif %}<span>{{ social.label }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© {{ buildYear }} Harrington &amp; Kauffman</p>
+  </footer>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      if (!root.classList.contains("fragment-navigation-pending")) return;
+      let fragment;
+      try {
+        fragment = decodeURIComponent(window.location.hash.slice(1));
+      } catch {
+        fragment = window.location.hash.slice(1);
+      }
+      const target = document.getElementById(fragment) || document.getElementsByName(fragment)[0];
+      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+      root.classList.remove("fragment-navigation-pending");
+      if (!root.classList.length) root.removeAttribute("class");
+    })();
+  </script>
+  {% if loadVideos %}<script type="module" src="/assets/js/video-facades.js"></script>{% endif %}
+  {% if loadEngagements %}<script type="module" src="/assets/js/engagements.js"></script>{% endif %}
+</body>
+</html>
